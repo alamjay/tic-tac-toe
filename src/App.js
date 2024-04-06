@@ -1,23 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
+import Board from "./components/Board";
+import Status from "./components/Status";
+import ResetButton from "./components/ResetButton";
+import {useState} from "react";
 
 function App() {
+
+    const [squares, setSquares] = useState(Array(9).fill(null));
+    const [status, setStatus] = useState("Next player: X")
+    const [isCounterX, setIsCounterX] = useState(true);
+    const [endGame, setEndGame] = useState(false)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App flex flex-col w-full py-4 gap-10 items-center justify-center">
+        <Status status={status} />
+
+        <Board
+            squares={squares}
+            setSquares={setSquares}
+            setStatus={setStatus}
+            isCounterX={isCounterX}
+            setIsCounterX={setIsCounterX}
+            endGame={endGame}
+            setEndGame={setEndGame}
+        />
+
+        <ResetButton
+            setSquares={setSquares}
+            setStatus={setStatus}
+            setIsCounterX={setIsCounterX}
+            setEndGame={setEndGame}
+        />
     </div>
   );
 }
