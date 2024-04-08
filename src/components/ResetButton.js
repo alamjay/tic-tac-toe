@@ -1,11 +1,4 @@
-function ResetButton({setSquares, setStatus, setIsCounterX, setEndGame}) {
-
-    const handleReset = () => {
-        setSquares(Array(9).fill(null))
-        setStatus("Next player: X")
-        setIsCounterX(true)
-        setEndGame(false)
-    }
+function ResetButton({handleReset}) {
 
     return (
         <button
