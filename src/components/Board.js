@@ -2,24 +2,7 @@ import {useEffect} from "react";
 import CrossIcon from "./icons/CrossIcon";
 import NaughtsIcon from "./icons/NoughtsIcon";
 import {CalculateWinner} from "../hooks/CalculateWinner";
-function Board({squares, setSquares, setStatus, isCounterX, setIsCounterX, endGame, setEndGame}) {
-
-    useEffect(() => {
-        const calcWinner = CalculateWinner(squares)
-        if (squares.every(element => element !== null)) {
-            setStatus("Tie")
-        } else if (calcWinner === "X") {
-            setStatus("Winner: X")
-            setEndGame(true)
-        } else if (calcWinner === "O") {
-            setStatus("Winner: O")
-            setEndGame(true)
-        } else if (squares.every(element => element === null)) {
-            setStatus("Next player: X")
-        } else {
-            isCounterX ? setStatus("Next player: X") : setStatus("Next player: O")
-        }
-    }, [squares, isCounterX])
+function Board({squares, setSquares, isCounterX, setIsCounterX, endGame}) {
 
     const renderSquare = (index) => {
         const middleColumn = [1, 4, 7]
