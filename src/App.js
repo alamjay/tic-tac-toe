@@ -2,7 +2,7 @@ import './App.css';
 import Board from "./components/Board";
 import Status from "./components/Status";
 import ResetButton from "./components/ResetButton";
-import React, {createContext, useEffect, useState} from "react";
+import React, {useState} from "react";
 
 function App() {
 

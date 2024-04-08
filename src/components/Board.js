@@ -1,7 +1,5 @@
-import {useEffect} from "react";
 import CrossIcon from "./icons/CrossIcon";
 import NaughtsIcon from "./icons/NoughtsIcon";
-import {CalculateWinner} from "../hooks/CalculateWinner";
 function Board({squares, setSquares, isCounterX, setIsCounterX, endGame}) {
 
     const renderSquare = (index) => {
